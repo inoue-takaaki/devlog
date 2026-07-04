@@ -1,7 +1,7 @@
 ---
 title: BitbucketとAWSで技術ブログのデプロイを自動化する（構想）
 description: 記事をPRで追加し、承認・マージをトリガーにBitbucket PipelinesからAWSへ自動デプロイする運用構想です。AWS構成図、デプロイの流れ、必要な設定をまとめます。
-pubDate: 2026-07-13
+pubDate: 2026-06-17
 author: taka
 ---
 

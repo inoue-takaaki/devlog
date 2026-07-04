@@ -98,7 +98,7 @@ flowchart TD
 ---
 title: 記事のタイトル
 description: 記事の概要（一覧やSEOで使われます）
-pubDate: 2026-03-14
+pubDate: 2026-06-13
 ---
 
 ここから本文をMarkdownで書きます。

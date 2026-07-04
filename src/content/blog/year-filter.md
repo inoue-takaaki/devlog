@@ -1,7 +1,7 @@
 ---
 title: 年で記事を絞り込む機能を実装する
 description: 記事から公開年を集計し、サイドバーの年別リンクから絞り込めるようにしました。Astroの getStaticPaths で年ごとのページを静的生成する実装を紹介します。
-pubDate: 2026-08-05
+pubDate: 2026-06-16
 author: taka
 ---
 
