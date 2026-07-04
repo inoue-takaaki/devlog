@@ -5,8 +5,8 @@ export async function GET(context) {
   const posts = await getCollection("blog");
 
   return rss({
-    title: "Tech Blog",
-    description: "技術ブログ",
+    title: "Side Quest",
+    description: "エンジニアの個人開発ログ",
     site: context.site,
     // ブラウザで開いたとき見やすく表示するためのスタイルシート
     stylesheet: "/rss/styles.xsl",
