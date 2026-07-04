@@ -18,7 +18,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 
 		<title>{title}</title>
@@ -49,23 +48,23 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
 <style is:global>
 	:root {
-		--color-primary: #00877a;
-		--color-primary-dark: #006b60;
-		--color-primary-light: #e6f3f1;
-		--color-accent: #8bc34a;
-		--color-accent-dark: #6ba832;
+		--color-primary: #2563eb;
+		--color-primary-dark: #1d4ed8;
+		--color-primary-light: #e7effd;
+		--color-accent: #38bdf8;
+		--color-accent-dark: #0ea5e9;
 
 		--color-text: #1f2933;
 		--color-text-muted: #6b7280;
-		--color-heading: #102a26;
+		--color-heading: #16233a;
 
 		--color-bg: #ffffff;
-		--color-bg-subtle: #f5f9f7;
-		--color-border: #e3e8e6;
+		--color-bg-subtle: #f5f8fd;
+		--color-border: #e3e8f0;
 
 		--radius: 12px;
-		--shadow-sm: 0 1px 2px rgba(16, 42, 38, 0.06);
-		--shadow-md: 0 6px 20px rgba(16, 42, 38, 0.08);
+		--shadow-sm: 0 1px 2px rgba(23, 37, 84, 0.06);
+		--shadow-md: 0 6px 20px rgba(23, 37, 84, 0.08);
 		--maxw: 760px;
 	}
 
