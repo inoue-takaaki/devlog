@@ -1,0 +1,49 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import Layout from "../../../../layouts/Layout.astro";
+import PostListing from "../../../../components/PostListing.astro";
+import { getSortedPosts, getYears, PAGE_SIZE, type Post } from "../../../../utils/blog";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getSortedPosts();
+  const years = getYears(posts);
+
+  return years.flatMap(({ year }) => {
+    const yearPosts = posts.filter(
+      (post) => post.data.pubDate.getFullYear() === year
+    );
+    return paginate(yearPosts, {
+      params: { year: String(year) },
+      pageSize: PAGE_SIZE,
+    });
+  });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props as { page: Page<Post> };
+const { year } = Astro.params;
+
+const allPosts = await getSortedPosts();
+const years = getYears(allPosts);
+const activeYear = Number(year);
+---
+
+<Layout
+  title={`${year}年の記事 | Devlog`}
+  description={`${year}年に公開された記事の一覧`}
+  wide
+>
+  <PostListing
+    posts={page.data}
+    eyebrow="DEV LOG"
+    heading={`${year}年の記事`}
+    lead={`${year}年に公開された記事の一覧です。`}
+    years={years}
+    total={page.total}
+    activeYear={activeYear}
+    currentPage={page.currentPage}
+    lastPage={page.lastPage}
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+    paginationBase={`/blog/year/${year}`}
+  />
+</Layout>

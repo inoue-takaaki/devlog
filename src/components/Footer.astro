@@ -1,0 +1,51 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+	<div class="inner">
+		<div class="links">
+			<a href="/">記事一覧</a>
+			<a href="/about">About</a>
+			<a href="/rss.xml">RSS</a>
+		</div>
+		<p class="copy">&copy; {year} Takaaki Inoue</p>
+	</div>
+</footer>
+
+<style>
+	footer {
+		border-top: 1px solid var(--color-border);
+		background: var(--color-bg-subtle);
+		margin-top: 4rem;
+	}
+	.inner {
+		max-width: var(--maxw);
+		margin: 0 auto;
+		padding: 2rem 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		align-items: center;
+		text-align: center;
+	}
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1.25rem;
+	}
+	.links a {
+		color: var(--color-text-muted);
+		text-decoration: none;
+		font-size: 0.9rem;
+	}
+	.links a:hover {
+		color: var(--color-primary-dark);
+	}
+	.copy {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.85rem;
+	}
+</style>

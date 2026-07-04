@@ -1,0 +1,67 @@
+---
+---
+
+<header>
+	<nav>
+		<a href="/" class="brand" aria-label="Devlog">
+			<span class="brand-label">Devlog</span>
+		</a>
+		<div class="links">
+			<a href="/">記事一覧</a>
+			<a href="/about">About</a>
+		</div>
+	</nav>
+</header>
+
+<style>
+	header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: rgba(255, 255, 255, 0.85);
+		backdrop-filter: saturate(180%) blur(8px);
+		border-bottom: 1px solid var(--color-border);
+	}
+	nav {
+		max-width: var(--maxw);
+		margin: 0 auto;
+		padding: 0.7rem 1.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		text-decoration: none;
+		color: inherit;
+	}
+	.brand-label {
+		font-weight: 700;
+		font-size: 1.05rem;
+		color: var(--color-heading);
+		letter-spacing: 0.02em;
+	}
+	.links {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+	.links a {
+		padding: 0.4rem 0.8rem;
+		border-radius: 999px;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		font-size: 0.92rem;
+		font-weight: 500;
+		transition:
+			background 0.15s ease,
+			color 0.15s ease;
+	}
+	.links a:hover {
+		background: var(--color-primary-light);
+		color: var(--color-primary-dark);
+	}
+</style>

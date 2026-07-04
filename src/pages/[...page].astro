@@ -1,0 +1,32 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import Layout from "../layouts/Layout.astro";
+import PostListing from "../components/PostListing.astro";
+import { getSortedPosts, getYears, PAGE_SIZE, type Post } from "../utils/blog";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getSortedPosts();
+  return paginate(posts, { pageSize: PAGE_SIZE });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props as { page: Page<Post> };
+
+const allPosts = await getSortedPosts();
+const years = getYears(allPosts);
+---
+
+<Layout title="Devlog | Takaaki Inoue" description="エンジニアの個人開発ログ" wide>
+  <PostListing
+    posts={page.data}
+    eyebrow="DEV LOG"
+    heading="Devlog"
+    lead="個人開発で得た技術的な学びを、不定期で残していきます。"
+    years={years}
+    total={page.total}
+    currentPage={page.currentPage}
+    lastPage={page.lastPage}
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+    paginationBase="/"
+  />
+</Layout>

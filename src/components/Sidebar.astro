@@ -1,0 +1,81 @@
+---
+interface Props {
+  years: { year: number; count: number }[];
+  activeYear?: number;
+  total: number;
+}
+
+const { years, activeYear, total } = Astro.props;
+---
+
+<aside class="sidebar">
+  <h3>年で絞り込み</h3>
+  <ul>
+    <li>
+      <a href="/" class:list={["year-link", { active: activeYear == null }]}>
+        <span>すべて</span>
+        <span class="count">{total}</span>
+      </a>
+    </li>
+    {years.map(({ year, count }) => (
+      <li>
+        <a
+          href={`/blog/year/${year}`}
+          class:list={["year-link", { active: activeYear === year }]}
+        >
+          <span>{year}年</span>
+          <span class="count">{count}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</aside>
+
+<style>
+  .sidebar h3 {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+  }
+  .sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.25rem;
+  }
+  .year-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.92rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .year-link:hover {
+    background: var(--color-bg-subtle);
+    color: var(--color-primary-dark);
+  }
+  .year-link.active {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+  .count {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    background: var(--color-bg-subtle);
+    border-radius: 999px;
+    padding: 0.05rem 0.55rem;
+    min-width: 1.6rem;
+    text-align: center;
+  }
+  .year-link.active .count {
+    background: #fff;
+    color: var(--color-primary-dark);
+  }
+</style>

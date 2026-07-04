@@ -1,0 +1,97 @@
+---
+import Layout from "./Layout.astro";
+import Avatar from "../components/Avatar.astro";
+import type { Author } from "../data/authors";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author: Author;
+}
+
+const { title, description, pubDate, author } = Astro.props;
+const formattedDate = pubDate.toLocaleDateString("ja-JP", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<Layout title={title} description={description}>
+	<article>
+		<header class="post-header">
+			<a href="/" class="back">← 記事一覧</a>
+			<time datetime={pubDate.toISOString()}>{formattedDate}</time>
+			<h1>{title}</h1>
+			<p class="lead">{description}</p>
+			<div class="byline">
+				<Avatar author={author} size={44} />
+				<div class="byline-text">
+					<span class="byline-name">{author.name}</span>
+					{author.bio && <span class="byline-bio">{author.bio}</span>}
+				</div>
+			</div>
+		</header>
+		<div class="post-body">
+			<slot />
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.post-header {
+		margin-bottom: 2.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+	.back {
+		display: inline-block;
+		margin-bottom: 1rem;
+		font-size: 0.88rem;
+		font-weight: 600;
+		text-decoration: none;
+		color: var(--color-text-muted);
+	}
+	.back:hover {
+		color: var(--color-primary-dark);
+	}
+	.post-header time {
+		display: block;
+		color: var(--color-primary);
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+	.post-header h1 {
+		margin: 0.4rem 0 0.8rem;
+		font-size: 2.1rem;
+	}
+	.post-header .lead {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 1.02rem;
+	}
+	.byline {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		margin-top: 1.4rem;
+	}
+	.byline-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.3;
+	}
+	.byline-name {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--color-text);
+	}
+	.byline-bio {
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+	.post-body :global(h2:first-of-type) {
+		margin-top: 1rem;
+	}
+</style>

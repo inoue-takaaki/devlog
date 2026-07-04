@@ -1,0 +1,65 @@
+<svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, 'Helvetica Neue', 'Hiragino Sans', 'Yu Gothic', sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+  <text x="30" y="40" font-size="20" font-weight="600" fill="#1f2937">サイトが読者に届くAWSの仕組み</text>
+
+  <!-- Route53 (top) -->
+  <g>
+    <rect x="330" y="62" width="220" height="66" rx="10" fill="#FAEEDA" stroke="#B45309" stroke-width="1.5"/>
+    <text x="440" y="90" text-anchor="middle" font-size="14.5" font-weight="600" fill="#7C2D12">Route 53（住所案内 / DNS）</text>
+    <text x="440" y="112" text-anchor="middle" font-size="12" fill="#92400E">「blog.gaxi.jp はどこ？」に答える</text>
+  </g>
+  <path d="M440,128 L440,176" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#a)"/>
+
+  <!-- 読者 -->
+  <g>
+    <rect x="30" y="206" width="150" height="100" rx="10" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.5"/>
+    <text x="105" y="248" text-anchor="middle" font-size="15" font-weight="600" fill="#2C2C2A">読者</text>
+    <text x="105" y="272" text-anchor="middle" font-size="12" fill="#444441">PC・スマホの</text>
+    <text x="105" y="289" text-anchor="middle" font-size="12" fill="#444441">ブラウザ</text>
+  </g>
+
+  <!-- CloudFront -->
+  <g>
+    <rect x="330" y="186" width="220" height="140" rx="10" fill="#E6F1FB" stroke="#185FA5" stroke-width="2"/>
+    <text x="440" y="224" text-anchor="middle" font-size="15" font-weight="600" fill="#042C53">CloudFront（CDN）</text>
+    <text x="440" y="250" text-anchor="middle" font-size="12.5" fill="#0C447C">世界中の拠点でキャッシュし</text>
+    <text x="440" y="268" text-anchor="middle" font-size="12.5" fill="#0C447C">高速で届ける</text>
+    <text x="440" y="300" text-anchor="middle" font-size="12.5" font-weight="600" fill="#185FA5">🔒 HTTPSで暗号化</text>
+  </g>
+
+  <!-- ACM badge -->
+  <g>
+    <rect x="352" y="356" width="176" height="46" rx="8" fill="#ffffff" stroke="#185FA5" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="440" y="376" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0C447C">ACM（HTTPS証明書）</text>
+    <text x="440" y="393" text-anchor="middle" font-size="11.5" fill="#185FA5">通信の暗号化に使う鍵</text>
+  </g>
+  <path d="M440,326 L440,354" stroke="#185FA5" stroke-width="1.2" stroke-dasharray="4 3" fill="none"/>
+
+  <!-- S3 -->
+  <g>
+    <rect x="700" y="206" width="150" height="100" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+    <text x="775" y="244" text-anchor="middle" font-size="15" font-weight="600" fill="#04342C">S3（保管庫）</text>
+    <text x="775" y="268" text-anchor="middle" font-size="12" fill="#085041">サイトの原本を保管</text>
+    <text x="775" y="286" text-anchor="middle" font-size="12" fill="#085041">非公開</text>
+  </g>
+
+  <!-- arrows 読者 <-> CloudFront -->
+  <path d="M182,242 L326,222" stroke="#185FA5" stroke-width="2.5" fill="none" marker-end="url(#b)"/>
+  <text x="252" y="218" text-anchor="middle" font-size="11.5" fill="#0C447C">①ページを要求</text>
+  <path d="M326,270 L182,290" stroke="#9ca3af" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <text x="252" y="308" text-anchor="middle" font-size="11.5" fill="#444441">④ページを表示</text>
+
+  <!-- arrows CloudFront <-> S3 -->
+  <path d="M552,238 L698,238" stroke="#0F6E56" stroke-width="2.5" fill="none" marker-end="url(#c)"/>
+  <text x="625" y="228" text-anchor="middle" font-size="11.5" fill="#085041">②原本を取得</text>
+  <text x="625" y="262" text-anchor="middle" font-size="11" fill="#64748b">（CloudFront経由のみ）</text>
+
+  <!-- caption -->
+  <text x="440" y="448" text-anchor="middle" font-size="12.5" fill="#64748b">一度読まれたページはCloudFrontに記憶され、次回はS3に取りに行かず即座に表示されます（③キャッシュ）。</text>
+
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9ca3af"/></marker>
+    <marker id="b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#185FA5"/></marker>
+    <marker id="c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0F6E56"/></marker>
+  </defs>
+</svg>

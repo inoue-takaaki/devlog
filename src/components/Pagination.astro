@@ -1,0 +1,101 @@
+---
+interface Props {
+  currentPage: number;
+  lastPage: number;
+  prevUrl?: string;
+  nextUrl?: string;
+  /** ページ番号リンクのベース。例: "/" や "/blog/year/2026/" */
+  base: string;
+}
+
+const { currentPage, lastPage, prevUrl, nextUrl, base } = Astro.props;
+
+// ページ番号リンクのURLを生成（1ページ目はベース、それ以降は base + n）
+const pageHref = (n: number) => (n === 1 ? base : `${base}${base.endsWith("/") ? "" : "/"}${n}`);
+
+const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
+---
+
+{lastPage > 1 && (
+  <nav class="pagination" aria-label="ページ送り">
+    <a
+      class:list={["edge", { disabled: !prevUrl }]}
+      href={prevUrl ?? "#"}
+      aria-disabled={!prevUrl}
+    >
+      ← 前へ
+    </a>
+
+    <ul class="pages">
+      {pages.map((n) => (
+        <li>
+          <a
+            href={pageHref(n)}
+            class:list={["page", { active: n === currentPage }]}
+            aria-current={n === currentPage ? "page" : undefined}
+          >
+            {n}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a
+      class:list={["edge", { disabled: !nextUrl }]}
+      href={nextUrl ?? "#"}
+      aria-disabled={!nextUrl}
+    >
+      次へ →
+    </a>
+  </nav>
+)}
+
+<style>
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .pages {
+    list-style: none;
+    display: flex;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+  }
+  .page,
+  .edge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.2rem;
+    height: 2.2rem;
+    padding: 0 0.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--color-bg);
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .page:hover,
+  .edge:not(.disabled):hover {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+  }
+  .page.active {
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+  }
+  .edge.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+</style>

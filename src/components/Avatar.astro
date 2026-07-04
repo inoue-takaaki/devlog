@@ -1,0 +1,55 @@
+---
+import type { Author } from "../data/authors";
+
+interface Props {
+  author: Author;
+  size?: number;
+}
+
+const { author, size = 40 } = Astro.props;
+
+// アバター画像が無い著者は、名前の頭文字＋名前から決まる色で表示する
+const initial = author.name.trim().charAt(0);
+const palette = ["#00877a", "#5b8def", "#e0883b", "#b455d6", "#6ba832"];
+let hash = 0;
+for (const ch of author.name) hash += ch.charCodeAt(0);
+const bg = palette[hash % palette.length];
+---
+
+{
+  author.avatar ? (
+    <img
+      class="avatar"
+      src={author.avatar.src}
+      alt={author.name}
+      width={size}
+      height={size}
+      loading="lazy"
+    />
+  ) : (
+    <span
+      class="avatar avatar--initial"
+      style={`width:${size}px;height:${size}px;background:${bg};font-size:${size * 0.45}px`}
+      aria-hidden="true"
+    >
+      {initial}
+    </span>
+  )
+}
+
+<style>
+  .avatar {
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+    background: var(--color-bg-subtle);
+  }
+  .avatar--initial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1;
+  }
+</style>
