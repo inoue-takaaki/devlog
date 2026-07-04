@@ -177,7 +177,7 @@
 
           <footer>
             <p>Powered by RSS ·
-              <a href="/">Devlog</a>
+              <a href="/">Side Quest</a>
             </p>
           </footer>
         </div>
