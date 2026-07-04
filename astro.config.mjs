@@ -5,8 +5,8 @@ import rehypeMermaid from 'rehype-mermaid';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: 個人ブログの配信先URLが確定したら差し替える
-  site: 'https://example.com',
+  // 配信先URL（独自ドメインを付けたら差し替える）
+  site: 'https://dqar9zonly8uw.cloudfront.net',
   integrations: [sitemap()],
   markdown: {
     // mermaid ブロックは構文ハイライトの対象から外し、rehype-mermaid に任せる
