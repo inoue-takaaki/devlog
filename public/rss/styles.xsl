@@ -177,7 +177,7 @@
 
           <footer>
             <p>Powered by RSS ·
-              <a href="/">株式会社ガクシー Tech Blog</a>
+              <a href="/">Devlog</a>
             </p>
           </footer>
         </div>

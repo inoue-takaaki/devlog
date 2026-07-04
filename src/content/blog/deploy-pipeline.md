@@ -53,7 +53,7 @@ flowchart TD
 | **S3** | ビルド成果物（`dist/` の静的ファイル）の保管場所 |
 | **CloudFront** | S3の前段に置くCDN。配信の高速化とHTTPS化 |
 | **ACM** | CloudFront用のSSL証明書（HTTPS化に必須） |
-| **Route 53** | ドメインのDNS。`gaxi.jp` 等をCloudFrontに向ける |
+| **Route 53** | ドメインのDNS。`example.com` 等をCloudFrontに向ける |
 | **Bitbucket Pipelines** | ビルドとデプロイを実行するCI/CD |
 
 CloudFrontを挟むことで、世界中どこからでも速く、かつHTTPSで配信できます。

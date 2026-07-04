@@ -13,14 +13,14 @@ author: taka
 `src/data/authors.ts` が「ユーザー設定の場所」です。表示名・アイコン・ひとことをまとめて管理します。
 
 ```ts
-import takaAvatar from "../assets/authors/gaxi-ino.png";
+import takaAvatar from "../assets/authors/taka.png";
 
 export const authors = {
-  gaxi: { name: "ガクシー編集部", avatar: gaxiAvatar },
   taka: { name: "井上 嵩章", avatar: takaAvatar, bio: "エンジニア" },
+  guest: { name: "ゲスト" },
 } satisfies Record<string, Author>;
 
-export const DEFAULT_AUTHOR_ID: AuthorId = "gaxi";
+export const DEFAULT_AUTHOR_ID: AuthorId = "taka";
 ```
 
 新しい人を増やすときは、ここにエントリを足すだけ。アイコンは `src/assets/authors/` に置いて
@@ -37,7 +37,7 @@ author: taka
 ---
 ```
 
-指定がない記事は `getAuthor()` がデフォルト著者（`gaxi`）にフォールバックします。
+指定がない記事は `getAuthor()` がデフォルト著者（`taka`）にフォールバックします。
 
 ```ts
 export function getAuthor(id?: string): Author {
