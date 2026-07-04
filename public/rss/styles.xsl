@@ -46,15 +46,15 @@
         <title><xsl:value-of select="/rss/channel/title" /> - RSSフィード</title>
         <style>
           :root {
-            --primary: #00877a;
-            --primary-dark: #006b60;
-            --primary-light: #e6f3f1;
-            --accent: #8bc34a;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #e7effd;
+            --accent: #38bdf8;
             --text: #1f2933;
             --muted: #6b7280;
-            --heading: #102a26;
-            --border: #e3e8e6;
-            --bg-subtle: #f5f9f7;
+            --heading: #16233a;
+            --border: #e3e8f0;
+            --bg-subtle: #f5f8fd;
           }
           * { box-sizing: border-box; }
           body {
@@ -116,12 +116,12 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             background: #fff;
-            box-shadow: 0 1px 2px rgba(16, 42, 38, 0.06);
+            box-shadow: 0 1px 2px rgba(23, 37, 84, 0.06);
             transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
           }
           li:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 42, 38, 0.08);
+            box-shadow: 0 6px 20px rgba(23, 37, 84, 0.08);
             border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
           }
           li a.item-link { display: block; padding: 1.3rem 1.5rem; text-decoration: none; color: inherit; }
