@@ -8,7 +8,7 @@ interface Props {
   wide?: boolean;
 }
 
-const { title, description = "技術ブログ", wide = false } = Astro.props;
+const { title, description = "エンジニアの個人開発ログ", wide = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
