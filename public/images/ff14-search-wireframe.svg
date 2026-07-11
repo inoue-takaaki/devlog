@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 600" font-family="'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif">
+  <rect width="820" height="600" fill="#ffffff"/>
+
+  <!-- header + type tabs -->
+  <text x="24" y="34" font-size="18" font-weight="700" fill="#0f172a">募集をさがす</text>
+  <rect x="24" y="48" width="96" height="34" rx="17" fill="#2563eb"/>
+  <text x="72" y="70" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">攻略</text>
+  <rect x="128" y="48" width="96" height="34" rx="17" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="176" y="70" font-size="14" fill="#64748b" text-anchor="middle">ゆる</text>
+
+  <!-- sidebar (filters) -->
+  <rect x="24" y="98" width="252" height="478" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="44" y="126" font-size="13" font-weight="700" fill="#334155">絞り込み</text>
+
+  <!-- コンテンツ -->
+  <text x="44" y="152" font-size="12" font-weight="700" fill="#2563eb">コンテンツ</text>
+  <rect x="44" y="160" width="212" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="180" font-size="12" fill="#334155">拡張：黄金のレガシー</text>
+  <text x="242" y="180" font-size="12" fill="#94a3b8">▾</text>
+  <rect x="44" y="196" width="212" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="216" font-size="12" fill="#334155">種類：レイド</text>
+  <text x="242" y="216" font-size="12" fill="#94a3b8">▾</text>
+  <rect x="44" y="232" width="212" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="252" font-size="12" fill="#334155">難易度：零式</text>
+  <text x="242" y="252" font-size="12" fill="#94a3b8">▾</text>
+
+  <!-- 空き枠 -->
+  <text x="44" y="290" font-size="12" font-weight="700" fill="#2563eb">空き枠（ロール）</text>
+  <rect x="44" y="298" width="56" height="28" rx="14" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="72" y="316" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="middle">Tank</text>
+  <rect x="106" y="298" width="66" height="28" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="139" y="316" font-size="12" fill="#64748b" text-anchor="middle">Healer</text>
+  <rect x="178" y="298" width="56" height="28" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="206" y="316" font-size="12" fill="#64748b" text-anchor="middle">DPS</text>
+
+  <!-- 雰囲気 -->
+  <text x="44" y="364" font-size="12" font-weight="700" fill="#2563eb">雰囲気（攻略）</text>
+  <rect x="44" y="372" width="76" height="28" rx="14" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="82" y="390" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="middle">初見歓迎</text>
+  <rect x="126" y="372" width="58" height="28" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="155" y="390" font-size="12" fill="#64748b" text-anchor="middle">練習</text>
+  <rect x="44" y="406" width="90" height="28" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="89" y="424" font-size="12" fill="#64748b" text-anchor="middle">クリア目的</text>
+
+  <!-- 開催形態 -->
+  <text x="44" y="470" font-size="12" font-weight="700" fill="#2563eb">開催形態</text>
+  <rect x="44" y="478" width="106" height="30" rx="6" fill="#2563eb"/>
+  <text x="97" y="498" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">単発</text>
+  <rect x="150" y="478" width="106" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="203" y="498" font-size="12" fill="#64748b" text-anchor="middle">固定</text>
+  <text x="44" y="534" font-size="11" fill="#94a3b8">※「固定」を選ぶと 活動頻度・活動期限 が出る</text>
+
+  <!-- main: results -->
+  <text x="296" y="120" font-size="13" fill="#64748b">全 128 件中 24 件を表示</text>
+  <rect x="690" y="104" width="108" height="28" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="744" y="122" font-size="12" fill="#334155" text-anchor="middle">新しい順 ↓</text>
+
+  <!-- card template -->
+  <g>
+    <rect x="296" y="146" width="502" height="128" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="316" y="176" font-size="15" font-weight="700" fill="#0f172a">アルカディア零式：ライトヘビー級</text>
+    <rect x="316" y="188" width="72" height="24" rx="12" fill="#eff6ff"/>
+    <text x="352" y="204" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">黄金・零式</text>
+    <rect x="394" y="188" width="76" height="24" rx="12" fill="#eff6ff"/>
+    <text x="432" y="204" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">初見歓迎</text>
+    <text x="316" y="238" font-size="12" fill="#64748b">Chocobo / 開始 21:00 ・ 承認制 ・ 単発</text>
+    <!-- role seats -->
+    <rect x="316" y="248" width="40" height="20" rx="10" fill="#e2e8f0"/>
+    <text x="336" y="262" font-size="11" fill="#475569" text-anchor="middle">T満</text>
+    <rect x="362" y="248" width="40" height="20" rx="10" fill="#e2e8f0"/>
+    <text x="382" y="262" font-size="11" fill="#475569" text-anchor="middle">H満</text>
+    <rect x="408" y="248" width="74" height="20" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="445" y="262" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">DPS 1枠空き</text>
+  </g>
+
+  <g opacity="0.55">
+    <rect x="296" y="288" width="502" height="128" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="316" y="318" font-size="15" font-weight="700" fill="#0f172a">絶バハムート討滅戦</text>
+    <rect x="316" y="330" width="60" height="24" rx="12" fill="#eff6ff"/>
+    <text x="346" y="346" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">絶</text>
+    <text x="316" y="380" font-size="12" fill="#64748b">Ramuh / 固定・週2 ・ クリアまで</text>
+  </g>
+
+  <g opacity="0.3">
+    <rect x="296" y="430" width="502" height="110" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="316" y="460" font-size="15" font-weight="700" fill="#0f172a">サブテラニアン・アヴェニュー</text>
+  </g>
+</svg>
