@@ -103,3 +103,14 @@ flowchart LR
   著者にフォールバックする。新規なら先に id を追加する。
 - **Node のバージョンはこのリポの `.node-version` で固定**。グローバルの別バージョンに頼らない。
 - 図に生の HTML を書かない。図は Mermaid か画像ファイル（SVG/PNG）で表現する。
+
+## コミット / PR の約束事
+
+- **コミットメッセージと PR タイトルは英語**で書く（Conventional Commits）。Squash マージで
+  タイトルがそのままコミットになるため揃える。例: `docs: add toolchain setup article`,
+  `feat: add tag taxonomy with filtering to blog`。
+- **記事本文・PR の説明本文（description）は日本語でよい。** 英語にするのはタイトルだけ。
+- `main` は保護ブランチ。変更は必ず作業ブランチ → PR → **Squash and merge** を経由する
+  （ブランチ名も `type/短い説明` の英語）。
+- PR は gh 未導入のため、`…/compare/main...ブランチ?quick_pull=1&title=…&body=…` の URL に
+  タイトル・本文を事前入力して作るとよい（`body` は日本語で URL エンコードする）。
