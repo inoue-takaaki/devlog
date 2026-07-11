@@ -3,6 +3,7 @@ title: Astroで技術ブログを構築する - 環境構築と使い方
 description: このブログはAstroで作られています。環境構築の手順から、記事の書き方、画像やMermaid図の挿入方法まで、実際のコードを交えて解説します。
 pubDate: 2026-06-13
 author: taka
+tags: ["blog-dev"]
 ---
 
 このブログは [Astro](https://astro.build/) という静的サイトジェネレーターで作られています。

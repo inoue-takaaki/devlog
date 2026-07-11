@@ -2,50 +2,56 @@
 import type { GetStaticPaths, Page } from "astro";
 import Layout from "../../../../layouts/Layout.astro";
 import PostListing from "../../../../components/PostListing.astro";
-import { getSortedPosts, getYears, getTags, PAGE_SIZE, type Post } from "../../../../utils/blog";
+import {
+  getSortedPosts,
+  getYears,
+  getTags,
+  getPostsByTag,
+  PAGE_SIZE,
+  type Post,
+} from "../../../../utils/blog";
+import { getTagLabel } from "../../../../data/tags";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getSortedPosts();
-  const years = getYears(posts);
+  const tags = getTags(posts);
 
-  return years.flatMap(({ year }) => {
-    const yearPosts = posts.filter(
-      (post) => post.data.pubDate.getFullYear() === year
-    );
-    return paginate(yearPosts, {
-      params: { year: String(year) },
+  return tags.flatMap(({ slug }) => {
+    const tagPosts = getPostsByTag(posts, slug);
+    return paginate(tagPosts, {
+      params: { tag: slug },
       pageSize: PAGE_SIZE,
     });
   });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props as { page: Page<Post> };
-const { year } = Astro.params;
+const activeTag = Astro.params.tag!;
+const label = getTagLabel(activeTag);
 
 const allPosts = await getSortedPosts();
 const years = getYears(allPosts);
 const tags = getTags(allPosts);
-const activeYear = Number(year);
 ---
 
 <Layout
-  title={`${year}年の記事 | Side Quest`}
-  description={`${year}年に公開された記事の一覧`}
+  title={`${label}の記事 | Side Quest`}
+  description={`「${label}」タグが付いた記事の一覧`}
   wide
 >
   <PostListing
     posts={page.data}
-    eyebrow="SIDE QUEST"
-    heading={`${year}年の記事`}
-    lead={`${year}年に公開された記事の一覧です。`}
+    eyebrow="TAG"
+    heading={label}
+    lead={`「${label}」タグが付いた記事の一覧です。`}
     years={years}
     tags={tags}
+    activeTag={activeTag}
     total={page.total}
-    activeYear={activeYear}
     currentPage={page.currentPage}
     lastPage={page.lastPage}
     prevUrl={page.url.prev}
     nextUrl={page.url.next}
-    paginationBase={`/blog/year/${year}`}
+    paginationBase={`/blog/tag/${activeTag}`}
   />
 </Layout>

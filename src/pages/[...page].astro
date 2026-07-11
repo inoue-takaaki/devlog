@@ -2,7 +2,7 @@
 import type { GetStaticPaths, Page } from "astro";
 import Layout from "../layouts/Layout.astro";
 import PostListing from "../components/PostListing.astro";
-import { getSortedPosts, getYears, PAGE_SIZE, type Post } from "../utils/blog";
+import { getSortedPosts, getYears, getTags, PAGE_SIZE, type Post } from "../utils/blog";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getSortedPosts();
@@ -13,6 +13,7 @@ const { page } = Astro.props as { page: Page<Post> };
 
 const allPosts = await getSortedPosts();
 const years = getYears(allPosts);
+const tags = getTags(allPosts);
 ---
 
 <Layout title="Side Quest | Takaaki Inoue" description="エンジニアの個人開発ログ" wide>
@@ -22,6 +23,7 @@ const years = getYears(allPosts);
     heading="Side Quest"
     lead="個人開発で得た技術的な学びを、不定期で残していきます。"
     years={years}
+    tags={tags}
     total={page.total}
     currentPage={page.currentPage}
     lastPage={page.lastPage}
