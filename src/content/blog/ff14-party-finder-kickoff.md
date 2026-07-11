@@ -3,6 +3,7 @@ title: FF14募集アプリを題材に、モダンな構成で作り始める - 
 description: 個人開発の題材にFF14のパーティー募集アプリを選びました。Nuxt / NestJS / Drizzle / Terraform / Fargate という構成をどう選んだか、迷ったところと決め手、それに開発の進め方をまとめた第1回です。
 pubDate: 2026-07-02
 author: taka
+tags: ["ff14"]
 ---
 
 個人開発の題材として、FF14（ファイナルファンタジーXIV）のパーティー募集アプリを作り始めました。

@@ -3,6 +3,7 @@ title: GitHub Actions と Terraform でブログを S3 + CloudFront に自動デ
 description: この Astro ブログのデプロイ構成をまとめます。配信は S3 + CloudFront、インフラは Terraform で管理し、GitHub Actions が OIDC で AWS に認証してデプロイします。アクセスキーを保存しない仕組みです。
 pubDate: 2026-06-18
 author: taka
+tags: ["blog-dev"]
 ---
 
 このブログは Astro で作った静的サイトです。ビルドすると `dist/` に HTML/CSS がそのまま吐き出されるだけなので、配信は「静的ファイルをどこかに置いて配る」だけで済みます。
